@@ -27,13 +27,13 @@ deploy:
     steps:
     # use the scratch step to build a container from scratch based on the files present
     - internal/docker-scratch-push:
-        username: $QUAY_USERNAME
-        password: $QUAY_PASSWORD
+        username: $HUB_USERNAME
+        password: $HUB_PASSWORD
         cmd: ./app
         tag: $WERCKER_GIT_COMMIT
         ports: "5000"
-        repository: quay.io/wercker/wercker-kubernetes-quay
-        registry: https://quay.io
+        repository: mayankt/city-test
+        registry: https://hub.docker.com
 
     # Run this to create the rc and service
     initialize:
@@ -59,4 +59,4 @@ deploy:
         password: $KUBERNETES_PASSWORD
         insecure-skip-tls-verify: true
         command: rolling-update cities
-        image: quay.io/wercker/wercker-kubernetes-quay:$WERCKER_GIT_COMMIT
+        image: mayankt/city-test:$WERCKER_GIT_COMMIT
