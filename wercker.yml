@@ -49,7 +49,6 @@ deploy:
         password: $KUBERNETES_PASSWORD
         insecure-skip-tls-verify: true
         command: create -f cities-service.json
-        
 
     # Update the replica controller to $WERCKER_GIT_COMMIT
     rolling-update:
