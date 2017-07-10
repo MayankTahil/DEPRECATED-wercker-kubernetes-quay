@@ -32,7 +32,7 @@ deploy:
         cmd: ./app
         tag: $WERCKER_GIT_COMMIT
         ports: "5000"
-        repository: mayankt/city-test
+        repository: $IMAGE
 
     # Run this to create the rc and service
     initialize:
@@ -58,4 +58,4 @@ deploy:
         password: $KUBERNETES_PASSWORD
         insecure-skip-tls-verify: true
         command: rolling-update cities
-        image: quay.io/mayanktahil/city-test:$WERCKER_GIT_COMMIT
+        image: $IMAGE:$WERCKER_GIT_COMMIT
