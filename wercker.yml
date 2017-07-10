@@ -34,7 +34,7 @@ deploy:
         ports: "5000"
         repository: quay.io/repository/mayanktahil/city-test
         registry: https://quay.io
-        
+
 
     # Run this to create the rc and service
     initialize:
@@ -60,4 +60,4 @@ deploy:
         password: $KUBERNETES_PASSWORD
         insecure-skip-tls-verify: true
         command: rolling-update cities
-        image: mayankt/city-test:$WERCKER_GIT_COMMIT
+        image: quay.io/mayanktahil/city-test:$WERCKER_GIT_COMMIT
